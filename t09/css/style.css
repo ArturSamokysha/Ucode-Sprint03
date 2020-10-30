@@ -45,6 +45,14 @@ h1{
     /* border: 1px solid white; */
     text-align: center;
 }
+
+.pl1-1{
+    border: 1px solid white;
+}
+.pl1-2{
+    border: 1px solid white;
+}
+
 .text{
     
     margin-top: 20px;
@@ -54,7 +62,7 @@ p{
     margin-left: 45px;
 }
 button{
-    margin-top: 350px;
+    margin-top: 250px;
     border: none;
     padding: 5px;
     padding-left: 10px;
@@ -65,3 +73,27 @@ button{
 button:hover{
     background-color: rgb(177, 174, 174);
 }
+#won1{
+    width: 150px;
+    height: 25px;
+    /* border: 1px solid red; */
+    color:  rgb(193, 193, 193);
+    margin-top: 50px;
+    font-weight: bold;
+}
+#won2{
+    width: 150px;
+    height: 25px;
+    /* border: 1px solid red; */
+    color:  rgb(193, 193, 193);
+    /* margin-top: 10px; */
+    font-weight: bold;
+}
+#draw{
+    width: 100px;
+    height: 25px;
+    color:   rgb(193, 193, 193);
+    font-weight: bold;
+    margin-left: 25px;
+}
+

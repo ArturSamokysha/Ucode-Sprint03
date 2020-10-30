@@ -4,18 +4,15 @@ let allBlocks = document.getElementsByClassName('block');
 let button = document.querySelector('button');
 let turns = document.querySelector('p');
 turns = 0;
-let won = document.createElement('div');
-won.classList.add("won");
 let pl1 = document.getElementById('pl1');
 let pl2 = document.getElementById('pl2');
-let playersChange;
-
-
+let won1 = document.getElementById('won1');
+let won2 = document.getElementById('won2');
+let draw = document.getElementById('draw');
 
 for (let i=0; i<9; i++){
     document.getElementById('game').innerHTML+='<div class="block"></div>';
-}
-
+};
 document.getElementById('game').onclick = function(event){
     if(event.target.className === 'block'){
         console.log(event.target.innerHTML);
@@ -23,30 +20,43 @@ document.getElementById('game').onclick = function(event){
         event.target.innerHTML = 'x';
         turns++;
         document.querySelector('p').innerHTML = turns;
-        
+        pl2.classList.add('pl1-1');
+        pl1.classList.remove('pl1-1');
         }else if(hod % 2 != 0 && !event.target.innerHTML){
         event.target.innerHTML = 'o';
+        
+        pl1.classList.add('pl1-1');
+        pl2.classList.remove('pl1-1');
         turns++;
         document.querySelector('p').innerHTML = turns;
-        playersChange = true;
+        
         }
         hod++;
         checkWinner();
         
-    }
-}
-
+         };
+};
 function checkWinner(){
     for(let i = 0; i < arr.length; i++){
         if(allBlocks[arr[i][0]].innerHTML == 'x' && allBlocks[arr[i][1]].innerHTML == 'x' && allBlocks[arr[i][2]].innerHTML == 'x'){
-            allBlocks[arr[i][0]].style.color = 'green', allBlocks[arr[i][1]].style.color = 'green', allBlocks[arr[i][2]].style.color = 'green'; 
+            allBlocks[arr[i][0]].style.color = 'green', 
+            allBlocks[arr[i][1]].style.color = 'green', 
+            allBlocks[arr[i][2]].style.color = 'green', 
+            won1.style.color = 'green';
+           game.onclick = null;
         }
         if(allBlocks[arr[i][0]].innerHTML == 'o' && allBlocks[arr[i][1]].innerHTML == 'o' && allBlocks[arr[i][2]].innerHTML == 'o'){
-            allBlocks[arr[i][0]].style.color = 'green', allBlocks[arr[i][1]].style.color = 'green', allBlocks[arr[i][2]].style.color = 'green';
+            allBlocks[arr[i][0]].style.color = 'green', 
+            allBlocks[arr[i][1]].style.color = 'green', 
+            allBlocks[arr[i][2]].style.color = 'green', 
+            won2.style.color = 'green';
+            game.onclick = null;
+           }
+        else if(turns == 9){
+            draw.style.color = 'green';
         }
     }
 };
-
 button.addEventListener('click', () => {location.reload()})
 
 
